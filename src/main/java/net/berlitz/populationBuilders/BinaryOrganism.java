@@ -1,4 +1,4 @@
-package net.berlitz.functions.populationBuilders;
+package net.berlitz.populationBuilders;
 
 public class BinaryOrganism extends Organism {
     public BinaryOrganism(Object chromosome, int timeOfCreation, int id) {

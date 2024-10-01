@@ -1,4 +1,4 @@
-package net.berlitz.functions.populationBuilders;
+package net.berlitz.populationBuilders;
 
 public class Organism {
     public final Object Chromosome;

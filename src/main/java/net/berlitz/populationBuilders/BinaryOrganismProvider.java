@@ -1,4 +1,4 @@
-package net.berlitz.functions.populationBuilders;
+package net.berlitz.populationBuilders;
 
 import java.util.Random;
 
