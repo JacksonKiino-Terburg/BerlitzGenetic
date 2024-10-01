@@ -4,16 +4,10 @@ import java.util.Random;
 
 public class BinaryOrganismProvider implements organismProvider {
     int bitLength;
-    long seed;
     Random rand;
-    public BinaryOrganismProvider(int bitLength) {
+    public BinaryOrganismProvider(int bitLength, Random rand) {
         this.bitLength = bitLength;
-        seed = System.currentTimeMillis();
-        rand = new Random(seed);
-    }
-    public BinaryOrganismProvider(int bitLength, long seed) {
-        this.bitLength = bitLength;
-        this.seed = seed;
+        this.rand = rand;
     }
 
     @Override

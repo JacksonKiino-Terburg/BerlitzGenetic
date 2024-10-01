@@ -1,6 +1,7 @@
 package net.berlitz.populationBuilders;
 
 import java.util.HashMap;
+import java.util.Random;
 
 public class Population {
     HashMap<Integer, Organism> wholePop;
@@ -9,14 +10,28 @@ public class Population {
     float crossoverRate;
     int age = 0;
     int currID = 0;
-    BinaryOrganismProvider organismProvider;
+    organismProvider organismProvider;
+    Random rand;
+    long seed;
 
-    public Population(int popSize, float mutationRate, float crossoverRate, BinaryOrganismProvider organismProvider) {
+    public Population(int popSize, float mutationRate, float crossoverRate, organismProvider organismProvider) {
         wholePop = initializePopulation();
         this.popSize = popSize;
         this.mutationRate = mutationRate;
         this.crossoverRate = crossoverRate;
         this.organismProvider = organismProvider;
+        seed = System.currentTimeMillis();
+        rand = new Random(seed);
+    }
+
+    public Population(int popSize, float mutationRate, float crossoverRate, organismProvider organismProvider, long seed) {
+        wholePop = initializePopulation();
+        this.popSize = popSize;
+        this.mutationRate = mutationRate;
+        this.crossoverRate = crossoverRate;
+        this.organismProvider = organismProvider;
+        this.seed = seed;
+        rand = new Random(seed);
     }
 
     public HashMap<Integer, Organism> initializePopulation() {
