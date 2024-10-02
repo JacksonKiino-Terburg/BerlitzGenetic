@@ -4,18 +4,16 @@ import java.util.Random;
 
 public class BinaryOrganismProvider implements organismProvider {
     int bitLength;
-    Random rand;
-    public BinaryOrganismProvider(int bitLength, Random rand) {
+    public BinaryOrganismProvider(int bitLength) {
         this.bitLength = bitLength;
-        this.rand = rand;
     }
 
     @Override
-    public BinaryOrganism randOrganism(int timeOfCreation, int orgID) {
-        return new BinaryOrganism(genRandomChromosome(bitLength), timeOfCreation, orgID) ;
+    public BinaryOrganism randOrganism(int timeOfCreation, int orgID, Random rand) {
+        return new BinaryOrganism(genRandomChromosome(bitLength, rand), timeOfCreation, orgID) ;
     }
 
-    private String genRandomChromosome(int bitLength) {
+    private String genRandomChromosome(int bitLength, Random rand) {
         String chromosome = "";
         for(int i = 0; i < bitLength; i++) {
             if(rand.nextBoolean()) chromosome += '1'; else chromosome += '0';
