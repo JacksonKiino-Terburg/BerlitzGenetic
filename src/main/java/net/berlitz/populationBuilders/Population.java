@@ -1,5 +1,7 @@
 package net.berlitz.populationBuilders;
 
+import net.berlitz.util.BinaryConverter;
+
 import java.util.HashMap;
 import java.util.Random;
 
@@ -48,6 +50,11 @@ public class Population {
     }
 
     public void setPopulation(HashMap<Integer, BinaryOrganism> population) {
-        this.wholePop = population;
+        this.wholePop.clear();
+        this.wholePop.putAll(population);
+    }
+
+    public void printPopulation() {
+        wholePop.forEach((k, v) -> System.out.println(k + ": " + BinaryConverter.binToDec(((String) v.Chromosome))));
     }
 }

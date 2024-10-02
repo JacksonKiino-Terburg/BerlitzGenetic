@@ -1,29 +1,32 @@
 package net.berlitz.functions.examples;
 
-
 public class Quadratic {
-    static Integer parameterA;
-    static Integer parameterB;
-    static Integer parameterC;
+    private static Integer parameterA;
+    private static Integer parameterB;
+    private static Integer parameterC;
+
+    // Constructor to initialize parameters
     public Quadratic(int a, int b, int c) {
         parameterA = a;
         parameterB = b;
         parameterC = c;
     }
 
-    public static Object call(Object... args) {
-        return (parameterA * ((Integer) args[0]))^2 + (parameterB * ((int) args[0]))+ parameterC;
+    // Call method to evaluate the quadratic function
+    public static long call(double x) {
+        return (long) ((parameterA * x * x) + (parameterB * x) + parameterC);
     }
 
     public String getName() {
-        return parameterA.toString() + "x^2" + '+' + parameterB.toString() + "x" + '+' + parameterC.toString();
+        return parameterA + "x^2 + " + parameterB + "x + " + parameterC;
     }
 
-    public static int fitnessMaximize(int Chromosome) {
-        return ((Integer) call(Chromosome));
+    // Fitness functions
+    public static long fitnessMaximize(double x) {
+        return call(x); // Return the value of the quadratic function directly
     }
 
-    public static int fitnessMinimize(int Chromosome) {
-        return -((Integer) call(Chromosome));
+    public static long fitnessMinimize(double x) {
+        return -call(x); // Return the negative for minimization
     }
 }
